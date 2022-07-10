@@ -1,0 +1,97 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+  --main-bg: #ffffff;
+  --second-bg: #fafafb;
+
+  --white: #fff;
+  --primary-color: rgb(245 158 11);
+
+  --dark: #000000;
+  --dark-gray: #374151;
+
+  --gray-bg: #f3f4f6;
+  --max-width-container: 1400px;
+  --text-color: #121212;
+  --text-white: #fff;
+  --box-shadow-dark: rgba(0, 0, 0, 0.2) 0px 5px 10px;
+  --border-radius: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  color: var(--text-white);
+  background-color: var(--primary-color);
+}
+
+body {
+  text-rendering: optimizespeed;
+  font-size: 1.6rem;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+  max-width: 1920px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input,
+textarea,
+[tabindex] {
+  outline: none;
+  border: none;
+  border: 2px solid transparent;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 9999px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #535c68;
+  border-radius: 9999px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+  height: 65px;
+  opacity: 0.9;
+}

@@ -1,0 +1,19 @@
+.text-404 {
+  font-size: 5rem;
+  font-weight: 700;
+  text-shadow: red -2px 0, cyan -2px 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  font-size: 1.6rem;
+  font-weight: 500;
+  & a {
+    color: var(--primary-color);
+  }
+}

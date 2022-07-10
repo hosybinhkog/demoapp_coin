@@ -1,0 +1,19 @@
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1920px;
+}
+
+.img-header {
+  border-radius: 8px;
+  height: 390px;
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+.wrapper {
+  max-width: 1920px;
+}
+
+.container {
+  min-height: 80vh;
+  max-width: 1920px;
+  background-color: var(--gray-bg);
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: var(--max-width-container);
+  width: 100%;
+}

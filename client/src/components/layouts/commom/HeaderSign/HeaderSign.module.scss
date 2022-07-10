@@ -1,0 +1,21 @@
+.wrapper {
+  max-width: 1920px;
+  background-color: var(--text-white);
+  height: 66px;
+  padding: 0 3.2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--box-shadow-dark);
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+}
+
+.logo {
+  height: 100%;
+
+  & img {
+    height: 64px;
+    width: 156px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+}
