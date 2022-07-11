@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { validate } from '~/utils/validate';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { FieldInput, Button } from '~/components';
-import { register } from '~/redux/actions/user.action';
+import { register, loadUser } from '~/redux/actions/user.action';
 import { CREATE_USER_CLEAR_ERROR, CREATE_USER_RESET } from '~/constants';
 
 const cx = classNames.bind(styles);
@@ -53,8 +53,9 @@ const Register = () => {
     }
 
     if (success) {
+      dispatch(loadUser());
+      navigate('/dashboard');
       dispatch({ type: CREATE_USER_RESET });
-      navigate('/');
     }
   }, [error, dispatch, success, navigate]);
 

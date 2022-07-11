@@ -96,7 +96,6 @@ export const registerReducer = (state = { user: {} }, action) => {
       return {
         ...state,
         error: null,
-        success: false,
       };
     case CREATE_USER_CLEAR_ERROR:
       return {
