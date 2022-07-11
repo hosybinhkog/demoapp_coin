@@ -1,22 +1,77 @@
 import classNames from 'classnames/bind';
 import { useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
-import logo from '~/assets/images/logo.png';
-import { Button, Loading } from '~/components';
-
+import { logout } from '~/redux/actions/user.action.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGear, faRightFromBracket, faUser, faWallet } from '@fortawesome/free-solid-svg-icons';
 import imgUser from '~/assets/images/imgUser.png';
+import logo from '~/assets/images/logo.png';
+import { Button, Loading, DropDown } from '~/components';
 
 const cx = classNames.bind(styles);
+
+const renderUserMenu = (item, index) => {
+  return (
+    <Link to={`/`} key={index}>
+      <div className={cx('notification-item')} onClick={item.onClick}>
+        <FontAwesomeIcon icon={item.icon} />
+        <span>{item.content}</span>
+      </div>
+    </Link>
+  );
+};
+
+const renderUserToggle = (user) => {
+  return (
+    <div className={cx('topnav__right-user', 'account')}>
+      <div className={cx('topnav__right-user__image')}>
+        <img src={user.urlAvatar} alt="" />
+      </div>
+      <span className={cx('topnav__right-user__name')}>{user.name}</span>
+    </div>
+  );
+};
 
 const Header = () => {
   const classActive = cx('activeLink', 'link');
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const headerRef = useRef(null);
 
   const { user, isAuthenticated, loading } = useSelector((state) => state.user);
+
+  const fakeDataUserMenus = [
+    {
+      icon: faUser,
+      content: 'Profile',
+    },
+    {
+      icon: faWallet,
+      content: 'My wallet',
+    },
+    {
+      icon: faGear,
+      content: 'Setting',
+    },
+    {
+      icon: faRightFromBracket,
+      content: 'Logout',
+      onClick: () => {
+        dispatch(logout());
+        navigate('/admin');
+      },
+    },
+  ];
+
+  const fakeUser = {
+    name: `${(user && user.username) || `messi`}`,
+    urlAvatar: `${user && user.avatar ? user.avatar[0].url : imgUser}`,
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -38,7 +93,9 @@ const Header = () => {
         <header className={cx('wrapper')} ref={headerRef}>
           <div className={cx('container')}>
             <div className={cx('logo')}>
-              <img src={logo} alt="" />
+              <Link to={'/'}>
+                <img src={logo} alt="" />
+              </Link>
             </div>
             <ul className={cx('menu')}>
               <li>
@@ -79,10 +136,11 @@ const Header = () => {
             </ul>
             {isAuthenticated ? (
               <>
-                <div className={cx('account')}>
-                  <img src={user.images ? user.images[0].src : imgUser} alt="avatar" />
-                  <span>{user.username}</span>
-                </div>
+                <DropDown
+                  customToggle={() => renderUserToggle(fakeUser)}
+                  contentData={fakeDataUserMenus}
+                  renderItems={(item, index) => renderUserMenu(item, index)}
+                />
               </>
             ) : (
               <div className={cx('action-btn')}>

@@ -6,3 +6,4 @@ export { default as Button } from './Button';
 export { default as FieldInput } from './FieldInput';
 export { default as ItemDeposit } from './ItemDeposit';
 export { default as Loading } from './Loading';
+export { default as DropDown } from './DropDown';

@@ -9,10 +9,10 @@ const Blog = () => {
   return (
     <div className={cx('wrapper')}>
       <div className={cx('container')}>
-        
+        <h3>Hiện tại website chưa có bài blog!</h3>
       </div>
     </div>
-  )
+  );
 };
 
 export default Blog;

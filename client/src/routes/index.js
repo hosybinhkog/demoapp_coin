@@ -44,7 +44,6 @@ routes.private = [
     path: '/dashboard',
     component: Dashboard,
     title: 'Dashboard',
-    layout: LayoutSignUp,
   },
 ];
 

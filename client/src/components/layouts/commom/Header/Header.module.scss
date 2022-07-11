@@ -70,3 +70,16 @@
     color: var(--primary-color);
   }
 }
+
+.notification-item {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  & svg {
+    color: var(--primary-color);
+  }
+}
